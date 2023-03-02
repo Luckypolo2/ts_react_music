@@ -1,0 +1,135 @@
+# ts_react_music
+#### 代码规范及初始化
+
+1. **.editorconfig**
+
+   ```shell
+   # 代码规范
+   root = true
+   [*] # 表示所有文件适用
+   charset = utf-8
+   indent_style = space # 缩进风格
+   indent_size = 2 # 缩进大小
+   end_of_line = lf # 换行符
+   trim_trailing_whitespace = true # 去除行尾空格
+   insert_final_newline = true # 文件末尾插入空行
+   [*.md] # markdown文件
+   max_line_length = off
+   trim_trailing_whitespace = false
+   
+   ```
+
+2. **.prettierrc**
+
+   ```shell
+   yarn add prettierrc -D
+   ```
+
+```shell
+{
+  "useTabs": false,
+  "tabWidth": 2,
+  "printWidth": 80,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "semi": false
+}
+
+```
+
+*.prettierignore*
+
+```
+/dist/*
+.local
+.output.js
+/node_modules/**
+
+**/*.svg
+**/*.sh
+
+/public/*
+
+```
+
+3. **eslint**
+
+   ```shell
+   yarn add eslint -D
+   npx eslint --init #项目初始化
+   ```
+
+   
+
+解决eslint与prettier冲突
+
+```shell
+yarn add eslint-plugin-prettier eslint-config-prettier -D
+```
+
+eslint配置
+
+```javascript
+"extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:prettier/recommended"
+    ],
+```
+
+##### 样式重置
+
+```shell
+yarn add normalize.css 
+```
+
+##### 路由
+
+```shell
+yarn add react-router-dom
+
+```
+##### 状态管理
+```shell
+yarn add @reduxjs/toolkit react-redux
+```
+#### Axios
+
+```shell
+yarn add axios
+```
+请求拦截器
+```javascript
+axios.interceptors.request.use(
+  (config) => {
+    // Do something before request is sent
+    return config;
+  },
+  (error) => {
+    // Do something with request error
+    return Promise.reject(error);
+  }
+);
+```
+响应拦截器
+```javascript
+axios.interceptors.response.use(
+  (response) => {
+    // Do something with response data
+    return response;
+  },
+  (error) => {
+    // Do something with response error
+    return Promise.reject(error);
+  }
+);
+```
+#### 样式
+```shell
+yarn add styled-components -D
+```
+styled-components 类型申明
+```shell
+yarn add @types/styled-components -D
+```
